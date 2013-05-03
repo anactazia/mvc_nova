@@ -1,0 +1,54 @@
+<?php
+/**
+* Class for Config
+*
+* @package Nova
+*/
+class Config extends Controller {
+	
+/**
+* Constructor
+*/
+	public function __construct() {
+		parent::__construct();
+		Session::init();
+
+		$logged = Session::get('loggedIn');
+		$role = Session::get('role');
+		$id = Session::get('id');
+		$user = Session::get('nickname');
+		$email = Session::get('email');	
+		
+	}
+
+/**
+* Config page
+*/	
+	public function config() {
+		$role = Session::get('role');
+		if($role == 'admin'){
+		$this->view->config = $this->model->viewconfigs();
+		$this->view->admin = $this->model->viewadmin();
+		$this->view->render('config/config');
+		}else{$this->view->render('user/restricted');}
+	}
+
+/**
+* Save configuration
+*/		
+	public function save($id)
+	{
+		$data = array();
+		$data['id'] = $id;
+		$data['nickname'] = $_POST['nickname'];
+		$data['name'] = $_POST['name'];
+		$data['title'] = $_POST['title'];
+		
+		$this->model->saveconfigs($data);
+		$this->model->saveadmin($data);
+		$this->view->render('user/adminedited');
+	}
+	
+
+ 		
+  }	

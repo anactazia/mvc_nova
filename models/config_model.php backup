@@ -1,0 +1,75 @@
+<?php
+/**
+* Class for Config Model
+*
+* @package Nova
+*/
+class Config_Model extends Model {
+	
+/**
+* Constructor
+*/	
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+/**
+* View configs
+*/		
+	public function viewconfigs($id)
+	{	$id='1';
+		$sth = $this->db->prepare('SELECT * FROM nova_config WHERE id = :id');
+		$sth->execute(array(':id' => $id));
+		return $sth->fetch();
+	}
+	
+	
+/**
+* View admin
+*/		
+	public function viewadmin($id)
+	{	$id='1';
+		$sth = $this->db->prepare('SELECT id, nickname, password, role FROM nova_users WHERE id = :id');
+		$sth->execute(array(':id' => $id));
+		return $sth->fetch();
+	}
+
+
+/**
+* Save Configs
+*/		
+	public function saveconfigs($data)
+	{
+		$sth = $this->db->prepare('UPDATE nova_config
+			SET `name` = :name, `title` = :title
+			WHERE id = :id
+			');
+		
+		$sth->execute(array(
+			':id' => $data['id'],
+			':name' => $data['name'],
+			':title' => $data['title']
+		));
+
+	}
+	
+/**
+* Save Admin
+*/		
+	public function saveadmin($data)
+	{
+		$sth = $this->db->prepare('UPDATE nova_users
+			SET `nickname` = :nickname
+			WHERE id = :id
+			');
+		
+		$sth->execute(array(
+			':id' => $data['id'],
+			':nickname' => $data['nickname']
+		));
+
+	}	
+	
+
+}

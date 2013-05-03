@@ -1,0 +1,70 @@
+@import url(../../themes/css/default.css);
+
+#header 	{
+		border-bottom: 4px solid #894C39;
+		}
+		
+#navmenu a,
+#navmenu2 a,
+#loginmenu a,
+#loginmenu2 a
+		{
+		background: #894C39;
+		}
+
+#header,		
+#navmenu a:hover,
+#navmenu2 a:hover,
+#loginmenu a:hover,
+#loginmenu2 a:hover,
+body#home a#home-,	
+body#guestbook a#guestbook-,
+body#page a#page-,  
+body#admin a#admin-, 
+body#articles a#articles-,
+body#user a#user-,
+body#contact a#contact-,
+body#blog a#blog-,  
+#footer,
+html	
+		{
+		background: #E86130;
+		}
+		
+.gravatar,
+.gravatar2,
+.writebutton, 
+.trashcanbutton,
+.configbutton
+		{
+		border:3px solid #894C39;
+		}
+		
+#footer 	{
+		border-top: 4px solid #894C39;
+		}		
+
+#navmenu a,
+#navmenu2 a,
+#loginmenu a,
+#loginmenu2 a,
+#footer,
+#header		{
+		color: #fff;
+		}
+		
+a#gravatar,
+a#gravatar2,
+a#gravatar:hover,
+a#gravatar2:hover
+		{
+		background:none;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		}		
+		
+		
+		
+
+
